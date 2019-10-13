@@ -1,0 +1,10 @@
+.gradle/
+.idea/
+Test Results - TestGpb_test.html
+build.gradle
+gradle/
+gradlew
+gradlew.bat
+out/
+settings.gradle
+
