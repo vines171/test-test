@@ -1,4 +1,4 @@
-//package ru.gpb.generators;
+//package ru.gpb;//package ru.gpb.generators;
 //
 //import org.supercsv.cellprocessor.constraint.NotNull;
 //import org.supercsv.cellprocessor.ift.CellProcessor;

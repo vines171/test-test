@@ -1,3 +1,5 @@
+package ru.gpb;
+
 import org.junit.jupiter.api.extension.ParameterResolver;
 import org.junit.jupiter.api.extension.TestTemplateInvocationContext;
 

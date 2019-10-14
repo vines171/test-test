@@ -1,3 +1,5 @@
+package ru.gpb;
+
 import org.junit.jupiter.api.extension.TestTemplateInvocationContext;
 
 import java.util.List;

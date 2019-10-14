@@ -3,11 +3,15 @@ package ru.gpb;
 //import jdk.nashorn.internal.runtime.regexp.joni.constants.Arguments;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestTemplate;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.omg.CORBA.Request;
 
-        import static io.restassured.RestAssured.*;
 
-        import static org.hamcrest.core.IsEqual.equalTo;
-
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.core.IsNull.notNullValue;
+import ru.gpb.UserProvider;
 
 
 class TestGpb  {
@@ -32,22 +36,22 @@ class TestGpb  {
 
     }
 
-//    @TestTemplate
-//    // @MethodSource("newUserNameJobNumbers")
-//    @ExtendWith(UserProvider.class)
-//   // @DisplayName("Имя и профессия заполненны валидными значениями")
-//    void testNewUserNameJobNumbers(Request request, String webServicePath) {
-//        given()
-//                .log()
-//                .all()
-//                .body(request)
-//                .post(webServicePath)
-//                .then()
-//                .log()
-//                .all()
-//                .statusCode(201)
-//                .body("id", notNullValue());
-//    }
+    @TestTemplate
+    // @MethodSource("newUserNameJobNumbers")
+    @ExtendWith(UserProvider.class)
+   // @DisplayName("Имя и профессия заполненны валидными значениями")
+    void testNewUserNameJobNumbers(Request request, String webServicePath) {
+        given()
+                .log()
+                .all()
+                .body(request)
+                .post(webServicePath)
+                .then()
+                .log()
+                .all()
+                .statusCode(201)
+                .body("id", notNullValue());
+    }
 
 
 //    @Test

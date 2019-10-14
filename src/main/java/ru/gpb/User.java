@@ -1,3 +1,5 @@
+package ru.gpb;
+
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.apache.commons.lang3.RandomStringUtils;
 

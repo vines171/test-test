@@ -1,10 +1,12 @@
+package ru.gpb;
+//C:\Users\Ira\projects\test-test\src\test\resources\testDate.csv
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 
-
 public class LegalList {
-    private static final String ORGANIZATIONS_DATA_PATH = "src/test/resources/testDate.csv"; // прописываем путь до файла, который не ихменяется
+    private static final String ORGANIZATIONS_DATA_PATH = "src\\test\\resources\\testDate.csv"; // прописываем путь до файла, который не ихменяется
     private static final List<String[]> ORGANIZATIONS_DATA = CsvUtil.getAllLines(ORGANIZATIONS_DATA_PATH, ','); // превращаем в список массива и разделяем значение знаком ","
     private static final List<User> LEGAL_LIST = getLegalList(ORGANIZATIONS_DATA); // делаем из массива список List<User>
 
