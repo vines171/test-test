@@ -24,15 +24,14 @@ class TestGpb  {
         given()
                 .log()
                 .all()
-                //.get("https://reqres.in/api/users")
                 .get("https://reqres.in/api/users")
                 .then()
                 .log()
                 .all()
                 .statusCode(200)
-                .body("page", equalTo(1));
+                .body("page", equalTo(1))
 //                .body("data[0].id", equalTo(0))
-//                .body("data[1].id", equalTo(1));
+                .body("data[1].id", equalTo(1));
 
     }
 
@@ -52,6 +51,7 @@ class TestGpb  {
                 .statusCode(201)
                 .body("id", notNullValue());
     }
+
 
 
 //    @Test

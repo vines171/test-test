@@ -45,7 +45,8 @@ public class User {
             return null;
         }
 
-//        public Builder(String name) { //делаем обязатель ное поле name
+//        public Builder(String name) { //делаем
+// обязатель ное поле name
 //            this.user = new User();
 //            user.setName(name);
 //        }

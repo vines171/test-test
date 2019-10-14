@@ -14,6 +14,11 @@ import java.util.List;
 import java.util.Objects;
 
 public class CsvUtil {
+    /**
+    Читает csv файл в classpath с разделителем.
+     Список с массиво строк
+     */
+
     public static List<String[]> getAllLines (String testCsvResoursePath, char separator) {
         try {
             CSVParser parser = new CSVParserBuilder()
