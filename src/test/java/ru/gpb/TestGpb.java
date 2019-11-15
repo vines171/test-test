@@ -18,22 +18,22 @@ class TestGpb  {
 
 //    private static final Logger logger = LoggerFactory.getLogger(TestGpb.class);
 
-    @Test
-    @DisplayName("Ололо мой тест")
-    void test() {
-        given()
-                .log()
-                .all()
-                .get("https://reqres.in/api/users")
-                .then()
-                .log()
-                .all()
-                .statusCode(200)
-                .body("page", equalTo(1))
-//                .body("data[0].id", equalTo(0))
-                .body("data[1].id", equalTo(1));
-
-    }
+//    @Test
+//    @DisplayName("Ололо мой тест")
+//    void test() {
+//        given()
+//                .log()
+//                .all()
+//                .get("https://reqres.in/api/users")
+//                .then()
+//                .log()
+//                .all()
+//                .statusCode(200)
+//                .body("page", equalTo(1))
+////                .body("data[0].id", equalTo(0))
+//                .body("data[1].id", equalTo(1));
+//
+//    }
 
     @TestTemplate
     // @MethodSource("newUserNameJobNumbers")

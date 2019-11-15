@@ -3,7 +3,6 @@ package ru.gpb;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestTemplateInvocationContext;
 import org.junit.jupiter.api.extension.TestTemplateInvocationContextProvider;
-import org.omg.CORBA.Request;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,19 +21,12 @@ import java.util.stream.Stream;
  */
 
 public class UserProvider implements TestTemplateInvocationContextProvider {
-    public static void main(String[] args){
-        System.out.println("Ggg");
-        List<User> individualListBank = LegalList
-                .getLegalList()
-                .stream()
-                .collect(Collectors.toList());
-        System.out.println(individualListBank);
-        }
+    public static void main(String[] args) {
+        System.out.println("ccc");
 
-
+    }
     private static final String DISPLAY_NAME = "Отправка корректного запроса";
     protected static final String WEB_SERVICE_PATH = "https://reqres.in/api/users";
-
 
     @Override
     public boolean supportsTestTemplate(ExtensionContext context) {
