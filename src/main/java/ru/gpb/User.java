@@ -1,6 +1,7 @@
 package ru.gpb;
 
 import com.fasterxml.jackson.annotation.*;
+import org.apache.commons.lang.builder.ToStringBuilder;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +13,14 @@ import java.util.Map;
         "age"
 })
 public class User {
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("name", name)
+                .append("job", job)
+                .append("age", age)
+                .toString();
+    }
 
     @JsonProperty("name")
     private String name;
@@ -62,36 +71,12 @@ public class User {
         this.additionalProperties.put(name, value);
     }
 
-//    @Override
-//    public String toString() {
-//        StringBuilder sb = new StringBuilder();
-//        sb.append(User.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-//        sb.append("name");
-//        sb.append('=');
-//        sb.append(((this.name == null)?"<null>":this.name));
-//        sb.append(',');
-//        sb.append("job");
-//        sb.append('=');
-//        sb.append(((this.job == null)?"<null>":this.job));
-//        sb.append(',');
-//        sb.append("age");
-//        sb.append('=');
-//        sb.append(((this.age == null)?"<null>":this.age));
-//        sb.append(',');
-//        if (sb.charAt((sb.length()- 1)) == ',') {
-//            sb.setCharAt((sb.length()- 1), ']');
-//        } else {
-//            sb.append(']');
-//        }
-//        return sb.toString();
-//    }
-
     @Override
     public int hashCode() {
         int result = 1;
+        result = ((result* 31)+((this.name == null)? 0 :this.name.hashCode()));
         result = ((result* 31)+((this.job == null)? 0 :this.job.hashCode()));
         result = ((result* 31)+((this.age == null)? 0 :this.age.hashCode()));
-        result = ((result* 31)+((this.name == null)? 0 :this.name.hashCode()));
         return result;
     }
 
@@ -107,7 +92,8 @@ public class User {
         return (((((this.job == rhs.job)||((this.job != null)&&this.job.equals(rhs.job)))&&((this.age == rhs.age)||((this.age!= null)&&this.age.equals(rhs.age))))&&((this.additionalProperties == rhs.additionalProperties)||((this.additionalProperties!= null)&&this.additionalProperties.equals(rhs.additionalProperties))))&&((this.name == rhs.name)||((this.name != null)&&this.name.equals(rhs.name))));
     }
 
-    public static final class UserBuilder {
+    public static class UserBuilder {
+
         private User loginRequestRequest;
 
         public UserBuilder() {

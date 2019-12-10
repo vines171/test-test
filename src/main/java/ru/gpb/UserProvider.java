@@ -7,8 +7,6 @@ import org.junit.jupiter.api.extension.TestTemplateInvocationContextProvider;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-
 /**
  * Класс провайдер, в котором обязательно переопределяются 2 метода
  *
@@ -22,13 +20,6 @@ import java.util.stream.Stream;
  */
 
 public class UserProvider implements TestTemplateInvocationContextProvider {
-
-    public static void main(String[] args) {
-        System.out.println("ccc");
-        System.out.println(LegalList.getLegalList());
-
-
-    }
     public static final String DISPLAY_NAME = "Отправка корректного запроса";
     public static final String WEB_SERVICE_PATH = "https://reqres.in/api/users";
 
@@ -39,13 +30,12 @@ public class UserProvider implements TestTemplateInvocationContextProvider {
 
     @Override
     public Stream<TestTemplateInvocationContext> provideTestTemplateInvocationContexts(ExtensionContext context) {
-
         List<User> individualListBank = LegalList
                 .getLegalList()
                 .stream()
                 .filter(user ->                 //выбираем не пустые значения, поля
                         user.getName() != null &&
-                                user.getName() != null &&
+                                user.getJob() != null &&
                                 user.getAge() != null)
 
                 .map(legal ->
@@ -64,16 +54,17 @@ public class UserProvider implements TestTemplateInvocationContextProvider {
 
         User request = individualList;
 
-
-
         return Stream.of(
                 new TestTemplateInvocationContextBuilder()
-                .withDisplayName(DISPLAY_NAME)
-                .addParameterResolved(String.class, WEB_SERVICE_PATH)
-                .addParameterResolved(User.class, request)
-                .build()
+                        .withDisplayName(DISPLAY_NAME)
+                        .addParameterResolved(String.class, WEB_SERVICE_PATH)
+                        .addParameterResolved(User.class, request)
+                        .build()
         );
     }
 }
+
+
+
 
 

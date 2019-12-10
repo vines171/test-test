@@ -1,21 +1,16 @@
 package ru.gpb;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static ru.gpb.CsvUtil.getAllLines;
 
 public class LegalList {
-    public static void main(String[] args) {
-        System.out.println("Ха-ха-ха");
-        System.out.println(getLegalList(ORGANIZATIONS_DATA));
-    }
     private static final String ORGANIZATIONS_DATA_PATH = "src/test/resources/testDate.csv"; // прописываем путь до файла, который не меняется
     private static final List<String[]> ORGANIZATIONS_DATA = getAllLines(ORGANIZATIONS_DATA_PATH, ','); // превращаем в список массива и разделяем значение знаком ","
     private static List<User> LEGAL_LIST = getLegalList(ORGANIZATIONS_DATA); // делаем из массива список List<User>
 
-    private static List<User> getLegalList(List<String[]> organizationsData) {
+    public static List<User> getLegalList(List<String[]> organizationsData) {
         /**
           метод, который возвращает стрим размапиных по name, job, age
          */
@@ -36,9 +31,10 @@ public class LegalList {
                                     .withAge(age)
                                     .build();
                         }
-                    ).collect(Collectors.collectingAndThen(
-                                Collectors.toList(),
-                                x -> Collections.unmodifiableList(x)));
+                ).collect(Collectors.toList());
+//                    ).collect(Collectors.collectingAndThen(
+//                                Collectors.toList(),
+//                                x -> Collections.unmodifiableList(x)));
 //                ).collect(Collectors.toUnmodifiableList());// неизменяемый список
     }
 
