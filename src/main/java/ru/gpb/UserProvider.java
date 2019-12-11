@@ -23,9 +23,17 @@ public class UserProvider implements TestTemplateInvocationContextProvider {
     public static final String DISPLAY_NAME = "Отправка корректного запроса";
     public static final String WEB_SERVICE_PATH = "https://reqres.in/api/users";
 
+    /**
+     * Метод для использования нужного метода в тестовом классе провайдера
+     * @param context
+     * @return
+     */
+
     @Override
     public boolean supportsTestTemplate(ExtensionContext context) {
-        return true;
+        String testClassName = context.getTestClass().orElseThrow().getSimpleName();
+        String testMethodName = context.getTestMethod().orElseThrow().getName();
+        return testClassName.equals("UserProvider") && (testMethodName.equals("testNewUserNameJobNumbers"));
     }
 
     @Override
